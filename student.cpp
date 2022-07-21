@@ -19,7 +19,7 @@ void student::courseSearch() // Searches for courses, currently does nothing
 	
 }
 
-void student::addCourse(string ID, string CRNS) // Adds a course 
+void student::addCourse(string ID, string CRNS) // Adds a course (Anthony)
 {
 	// Opens the users database
 	sqlite3* db;
@@ -57,7 +57,7 @@ void student::addCourse(string ID, string CRNS) // Adds a course
 	sqlite3_close(db);
 }
 
-void student::removeCourse(string ID, string CRNS) // Removes a course (Inderdeep)
+void student::removeCourse(string ID, string CRNS) // Removes a course (Anthony)
 {
 	// Opens the users database
 	sqlite3* db;

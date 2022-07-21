@@ -14,7 +14,7 @@ void instructor::setAttributes(string first, string last, string ID) // Construc
 	userID = ID;
 }
 
-void instructor::addCourse(string ID, string CRNS) // Adds a course 
+void instructor::addCourse(string ID, string CRNS) // Adds a course (Anthony)
 {
 	// Opens the users database
 	sqlite3* db;
@@ -53,7 +53,7 @@ void instructor::addCourse(string ID, string CRNS) // Adds a course
 	sqlite3_close(db);
 }
 
-void instructor::removeCourse(string ID, string CRNS) // Removes a course (Inderdeep)
+void instructor::removeCourse(string ID, string CRNS) // Removes a course (Anthony)
 {
 	// Opens the users database
 	sqlite3* db;
@@ -89,7 +89,7 @@ void instructor::removeCourse(string ID, string CRNS) // Removes a course (Inder
 	sqlite3_close(db);
 }
 
-void instructor::printSchedule(string ID) // Prints instructors schedule, currently does nothing
+void instructor::printSchedule(string ID) // Prints instructors schedule (Anthony)
 {
 	// Opens the users database
 	sqlite3* db;
