@@ -10,6 +10,7 @@
 #include <algorithm>
 
 using namespace std;
+using std::cout;
 using std::vector; 
 using std::istringstream;
 using std::stringstream;

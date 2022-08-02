@@ -10,7 +10,7 @@ public:
     void addCourse(string ID, string CRNS);
     void removeCourse(string ID, string CRNS);
     void printSchedule(string ID);
-    void printClassList();
+    void printCourseRoster(string ID);
     void courseSearch();
 };
 

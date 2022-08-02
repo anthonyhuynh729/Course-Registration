@@ -7,13 +7,13 @@ public:
     student(string first, string last, string ID);
 
     void setAttributes(string fName, string lName, string ID);
-    // Student class has three methods
-    void courseSearch();
-
+    // Student class has four methods
     void addCourse(string ID, string CRNS);
 
     void removeCourse(string ID, string CRNS);
 
-    void printSchedule();
+    void printSchedule(string ID);
+
+    void checkConflicts(string ID);
 };
 

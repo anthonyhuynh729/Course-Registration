@@ -78,15 +78,18 @@ void user::searchCourses() // Prompts user for which parameters they would like 
 
 	int paramChoice = 0;
 	string CRN;
+	//char title[256];
 	string title;
 	string dept;
 	string time;
+	//char days[256];
 	string days;
 	string semester;
 	string year;
 	string credits;
 
 	cout << "Course Parameters include: CRN, Title, Department, Time, Day, Semester, Year, Credits" << endl;
+	// Runs a loop until user chooses to search
 	while (paramChoice != 9) {
 		cout << "Which Parameter woud you like to define?" << endl;
 		cout << "(Note: Selecting a parameter more than once will invalidate the search)" << endl;
@@ -101,6 +104,7 @@ void user::searchCourses() // Prompts user for which parameters they would like 
 		cout << "9. Search for Courses" << endl;
 		cin >> paramChoice;
 		
+		// Prompts user for a parameter depending on which one they want to search for
 		switch (paramChoice) {
 		case 1:
 			cout << "Enter the CRN: ";
@@ -111,7 +115,9 @@ void user::searchCourses() // Prompts user for which parameters they would like 
 		case 2:
 			cout << "Enter the Title: ";
 			cin.ignore();
+			//std::cin.getline(title, 20);
 			getline(cin, title);
+
 			sql = sql + " TITLE = '" + title + "' and";
 			cout << endl;
 			break;
@@ -130,8 +136,10 @@ void user::searchCourses() // Prompts user for which parameters they would like 
 		case 5:
 			cout << "Enter the Days(Ex: M W R): ";
 			cin.ignore();
+			//std::cin.getline(days, 20);
 			getline(cin, days);
-			sql = sql + " DAYS = '" + days + "' and";
+			sql = sql + " DAY = '" + days + "' and";
+			//cout << days;
 			cout << endl;
 			break;
 		case 6:
@@ -187,6 +195,8 @@ void user::logIn() { // Asks user for ID and Email and checks if they match (Ind
 	string tempEmail;
 	int userType;
 	cout << "Welcome to Course Manager 3000" << endl;
+
+	
 	while (1) {
 		cout << "Please enter your User ID (Ex: 12345)" << endl;
 		cin >> userID;
@@ -196,6 +206,7 @@ void user::logIn() { // Asks user for ID and Email and checks if they match (Ind
 
 		userType = userID[0] - '0';
 
+		// Depending on user type, searches corresponding table
 		switch (userType) {
 		case 1:
 			sql = "Select EMAIL from Student Where ID = " + userID;
@@ -214,6 +225,7 @@ void user::logIn() { // Asks user for ID and Email and checks if they match (Ind
 		size_t s = sqlite3_column_bytes(stmt, 0);
 		tempEmail = (s > 0 ? string((const char*)first, s) : "");
 
+		// If the user types the correct email, then proceeds to the rest of login
 		if (tempEmail == userEmail) {
 			cout << "Login Successful" << endl;
 
@@ -266,7 +278,7 @@ void user::logIn() { // Asks user for ID and Email and checks if they match (Ind
 }
 
 void user::logOut() {
-
+	// If logout is called the resets all the user attributes
 	cout << "You have been logged out." << endl;
 
 	userID = "000000";
